@@ -26,5 +26,5 @@ http://rfsber.home.xs4all.nl/Robo/robodoc.html
 
 http://www.naturaldocs.org
 
-but really Makefiles support do not well documented
+but really Makefile support is not documented well
 and it is at very basic level.
