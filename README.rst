@@ -22,9 +22,8 @@ GNU GENERAL PUBLIC LICENSE version 3, see LICENSE for more information.
 There are some other open-source documentation generators exists
 that claims Makefile support:
 
-http://rfsber.home.xs4all.nl/Robo/robodoc.html
-
-http://www.naturaldocs.org
+* http://rfsber.home.xs4all.nl/Robo/robodoc.html
+* http://www.naturaldocs.org
 
 but really Makefile support is not documented well
 and it is at very basic level.
