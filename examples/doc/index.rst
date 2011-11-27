@@ -6,20 +6,29 @@
 Welcome to testdoc's documentation!
 ===================================
 
-ref:  :make:var:`PKG_SOURCE`
+Ref links to markup constructions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* :make:var:`PKG_SOURCE`
+* :make:target:`configure target <configure>`
+* :make:var:`configure var <configure>`
+
+
+Some test markup
+~~~~~~~~~~~~~~~~
 
 .. make:var:: PKG_SOURCE
    
    PKG_SOURCE is ...
+   
+.. make:var:: configure
+   
+   configure var is ...
     
-
-:make:var:`PKG_SOURCE`
-
-
-Contents:
-
-.. toctree::
-   :maxdepth: 2
+.. make:target:: configure
+   
+   configure target is ...
+    
 
 
 
