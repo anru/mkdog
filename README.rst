@@ -11,8 +11,8 @@ and outputs HTML document with index and search capability.
 
 ----
 
-MKDOG is written on Python (http://python.org) as
-Sphinx (http://sphinx.pocoo.org) extension.
+MKDOG is written on Python_ as
+Sphinx_ extension.
 
 MKDOG is available under the terms of the
 GNU GENERAL PUBLIC LICENSE version 3, see LICENSE for more information.
@@ -28,3 +28,6 @@ http://www.naturaldocs.org
 
 but really Makefile support is not documented well
 and it is at very basic level.
+
+.. _Python: http://python.org
+.. _Sphinx: http://sphinx.pocoo.org
