@@ -16,8 +16,8 @@ class MakeObject(ObjectDescription):
         # namespace: 1 - variables and functions, 2 - targets
         fullname = name
         descname = name
-        if self.objtype == 'target':
-            fullname += '-target'
+        if self.objtype == 'var':
+            fullname = '$' + fullname
         # note target
         if fullname not in self.state.document.ids:
             signode['names'].append(fullname)
@@ -47,8 +47,8 @@ class MakeObject(ObjectDescription):
 
 class MakeXRefRole(XRefRole):
     def process_link(self, env, refnode, has_explicit_title, title, target):
-        if refnode['reftype'] == 'target':
-            target += '-target'
+        if refnode['reftype'] == 'var':
+            target = '$' + target
         return title, target
 
 class MakeDomain(Domain):
