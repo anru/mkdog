@@ -9,8 +9,8 @@ continuation_re = re.compile(r'\\[ \t]*\r?\n', re.MULTILINE)
 lang_re = re.compile(r'\.\. lang=([\w-]+)', re.UNICODE)
 newline_re = re.compile(r'\r?\n')
 
-variable_re = re.compile(r'(\w[\w\d]*)\s*[?+:]?=\s*(.*)', re.UNICODE)
-target_re = re.compile(r'^(\.?\w[\w\d]*)\s*:\s*(.*)$', re.MULTILINE)
+variable_re = re.compile(r'([\w\d]+)\s*[?+:]?=\s*(.*)', re.UNICODE)
+target_re = re.compile(r'^(\.?[\w\d]+)\s*:\s*(.*)$', re.MULTILINE)
 
 TYPE_VARIABLE = 1
 TYPE_TARGET = 2
