@@ -5,6 +5,7 @@ from sphinx.domains import Domain, ObjType
 from sphinx.roles import XRefRole
 from sphinx.util.nodes import make_refnode
 from sphinx.directives import ObjectDescription
+from mkdog.directives.autodoc import AutoFile
 
 class MakeObject(ObjectDescription):
     def handle_signature(self, sig, signode):
@@ -63,6 +64,7 @@ class MakeDomain(Domain):
     directives = {
         'var': MakeObject,
         'target': MakeObject,
+        'autofile': AutoFile
     }
     
     roles = {

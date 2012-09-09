@@ -30,6 +30,7 @@ Some test markup
    configure target is ...
     
 
+.. make:autofile:: test.mk
 
 
 Indices and tables
