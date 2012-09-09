@@ -1,5 +1,5 @@
 
-import os
+import os, glob
 from docutils import nodes
 from docutils.statemachine import ViewList
 from docutils.parsers.rst import Directive, directives
@@ -61,34 +61,32 @@ class AutoFile(Directive):
         if not mk_project_src:
             raise self.error("You must define `mk_project_src` config value!")
         
-        filename = self.arguments[0]
-        filepath = os.path.join(mk_project_src, filename)
-        
-        if not os.path.exists(filepath):
-            raise self.error("File %s not exist" % filepath)
-        
-        self.state.document.settings.record_dependencies.add(filepath)
-        
-        f = open(filepath, 'rt')
-        mksource = readmk(f)
-        f.close()
+        arg0 = self.arguments[0]
+        files_pattern = os.path.join(mk_project_src, arg0)
+        filepaths = glob.glob(files_pattern)
 
         self.result = ViewList()
-
         documenter = MkDocumenter(self)
-        
-        tokens = parsestring(mksource) #  [ (comments, name, type), ... ]
 
-        for comments, name, _type in tokens:
-            localized_comments = None
-            if comments:
-                localized_comments = comments[lang] if lang in comments else None
-            documenter.generate(localized_comments, name, _type)
-            documenter.reset()
+        for filepath in filepaths:
+            self.state.document.settings.record_dependencies.add(filepath)
+            
+            f = open(filepath, 'rt')
+            mksource = readmk(f)
+            f.close()
+            
+            tokens = parsestring(mksource) #  [ (comments, name, type), ... ]
 
-        node = nodes.paragraph()
-        node.document = self.state.document
-        self.state.nested_parse(self.result, 0, node)
+            for comments, name, _type in tokens:
+                localized_comments = None
+                if comments:
+                    localized_comments = comments[lang] if lang in comments else None
+                documenter.generate(localized_comments, name, _type)
+                documenter.reset()
+
+            node = nodes.paragraph()
+            node.document = self.state.document
+            self.state.nested_parse(self.result, 0, node)
         
         return self.warnings + node.children
         
