@@ -72,7 +72,7 @@ class AutoFile(Directive):
             self.state.document.settings.record_dependencies.add(filepath)
             
             f = open(filepath, 'rt')
-            mksource = readmk(f)
+            mksource = readmk(f, charset=config.source_encoding)
             f.close()
             
             tokens = parsestring(mksource) #  [ (comments, name, type), ... ]
