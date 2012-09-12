@@ -18,17 +18,17 @@ Some test markup
 ~~~~~~~~~~~~~~~~
 
 .. make:var:: PKG_SOURCE
-   
+
    PKG_SOURCE is ...
-   
+
 .. make:var:: configure
-   
+
    configure var is ...
-    
+
 .. make:target:: configure
-   
+
    configure target is ...
-    
+
 
 .. make:autofile:: test.mk
 
@@ -38,4 +38,3 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`search`
-

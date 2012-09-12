@@ -1,4 +1,3 @@
-
 import os, glob
 from docutils import nodes
 from docutils.statemachine import ViewList
@@ -50,17 +49,17 @@ class MkDocumenter(object):
 class AutoFile(Directive):
     required_arguments = 1
     has_content = True
-    
+
     def run(self):
         env = self.state.document.settings.env
         config = env.config
         self.warnings = []
-        lang = config.language 
-        
+        lang = config.language
+
         mk_project_src = config['mk_project_src']
         if not mk_project_src:
             raise self.error("You must define `mk_project_src` config value!")
-        
+
         arg0 = self.arguments[0]
         files_pattern = os.path.join(mk_project_src, arg0)
         filepaths = glob.glob(files_pattern)
@@ -70,11 +69,11 @@ class AutoFile(Directive):
 
         for filepath in filepaths:
             self.state.document.settings.record_dependencies.add(filepath)
-            
+
             f = open(filepath, 'rt')
             mksource = readmk(f, charset=config.source_encoding)
             f.close()
-            
+
             tokens = parsestring(mksource) #  [ (comments, name, type), ... ]
 
             for comments, name, _type in tokens:
@@ -87,9 +86,5 @@ class AutoFile(Directive):
             node = nodes.paragraph()
             node.document = self.state.document
             self.state.nested_parse(self.result, 0, node)
-        
+
         return self.warnings + node.children
-        
-        
-        
-        

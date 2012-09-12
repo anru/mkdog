@@ -17,4 +17,3 @@ VAR1 = "Some variable"
 
 # target without any special comments
 doctarget: .PHONY
-

@@ -1,4 +1,3 @@
-
 import os, sys, re
 import unittest
 
@@ -90,5 +89,3 @@ class TestMakeFiles(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-

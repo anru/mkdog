@@ -1,4 +1,3 @@
-
 from mkdog.domains.make import MakeDomain
 
 def setup(app):

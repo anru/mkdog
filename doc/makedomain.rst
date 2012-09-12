@@ -6,12 +6,12 @@ declarations:
 
 .. rst:directive:: .. make:var:: name
 
-   Describes a Make variable. 
-   
+   Describes a Make variable.
+
 .. rst:directive:: .. make:target:: name
-    
-   Describes a Make target.  
-   
+
+   Describes a Make target.
+
 Cross-referencing Make objects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -21,7 +21,7 @@ a matching identifier is found:
 .. rst:role:: make:var
 
    Reference a Make variable.
-   
+
 .. rst:role:: make:target
-   
+
    Reference a Make target.
